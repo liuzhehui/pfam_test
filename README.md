@@ -16,55 +16,75 @@ To create a conda environment and install the required dependencies, follow thes
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/pfam-protein-family-prediction.git
-cd pfam-protein-family-prediction
+git clone https://github.com/liuzhehui/pfam_test.git
+cd pfam_test
+```
 
-2. Create and Activate the Conda Environment
+#### 2. Create and Activate the Conda Environment
+```bash
 conda env create -f environment.yml
 conda activate pfam
+```
 
-3. Install Python Packages with Pip
+
+#### 3. Install Python Packages with Pip
+
+```bash
 pip install -r requirements.txt
+```
 
-4. Install Jupyter Kernel
+#### 4. Install Jupyter Kernel
+
 If you want to use Jupyter notebooks, install the Jupyter kernel:
+
+```bash
 python -m ipykernel install --user --name pfam --display-name "Python (pfam)"
 ```
 
-Usage
-Data Preparation
+## Usage
+
+### Data Preparation
+
 Make sure your data is organized as follows:
 data/
 ├── random_split/
-│   ├── train.csv
-│   ├── dev.csv
-│   └── test.csv
+│   ├── train/
+│   ├── dev/
+│   └── test/
 
-Run the Code
-To train and evaluate the model, run:
-python train.py
+#### Note: The data is not directly provided, but can be downloaded at https://www.kaggle.com/datasets/googleai/pfam-seed-random-split
 
+### Run the Code
 
-Example Code
-Here’s a brief description of the key files and scripts:
+To train and evaluate the model, you can simply run the provided Jupyter notebook `./notebook/pfam_classification.ipynb` by following the instructions inside. 
+The notebook utilizes custom-written modules located in the `./src` folder, which include various `.py` files necessary for the training and evaluation process.
 
-train.py: Script to load data, preprocess, train, and evaluate the model.
-environment.yml: Conda environment configuration file.
-data/: Directory containing the training, development, and test datasets.
-Data Loading
-The data is loaded from CSV files located in the data/random_split directory. Each CSV file should have a column named sequence for the protein sequences and a column named family for the labels.
+These are the modules in the './src' folder:
 
-One-Hot Encoding
-Sequences are one-hot encoded using OneHotEncoder from scikit-learn. Each amino acid in the sequence is encoded as a binary vector.
+- `data_loading.py`: Contains functions for loading the protein sequences data.
+- `data_plotting.py`: Contains functions for data visualisation.
+- `cnn.py`: Defines the ProtCNN model architecture for protein family classification.
+- `lstm.py`: Defines the Bi-LSTM model architecture for protein family classification.
+- `model_train.py`: Script for training the model.
+- `evaluate.py`: Contains functions for evaluating the trained model on a test dataset.
+- `seq_encoding.py`: Contains functions for encoding the input protein sequence and target labels.
 
-Model Training
-The model is trained using PyTorch. A simple CNN architecture is used for demonstration purposes. Modify the architecture as needed.
-
+### Results and analysis
+- The trained models are saved in the `./models` folder.
+- The data table and plots are saved in the `./analysis` folder.
+- The full written report is saved in the `./report` folder.
 
 ## Hardware that I run my code
 
-OS: WSL2 - Ubuntu 22.04.2 LTS
-CPU: AMD Ryzen 5 3600 - 6 core 12 threads
-GPU: RTX 4070
-Memory: 32GB
-IDE: Visual Studio Code 
+- OS: WSL2 - Ubuntu 22.04.2 LTS
+- CPU: AMD Ryzen 5 3600 - 6 core 12 threads
+- GPU: RTX 4070
+- Memory: 32GB
+- IDE: Visual Studio Code 
+
+## References
+
+In addition to the reference I listed in the report, the following links helped me guide through the project and provided inspirations:
+- https://www.kaggle.com/code/nistugua/pfam-analysis-classification
+- https://github.com/ronakvijay/Protein_Sequence_Classification/tree/master
+- https://towardsdatascience.com/protein-sequence-classification-99c80d0ad2df
