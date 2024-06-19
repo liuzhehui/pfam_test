@@ -46,11 +46,14 @@ python -m ipykernel install --user --name pfam --display-name "Python (pfam)"
 ### Data Preparation
 
 Make sure your data is organized as follows:
+```
 data/
 ├── random_split/
 │   ├── train/
 │   ├── dev/
 │   └── test/
+```
+
 
 #### Note: The data is not directly provided, but can be downloaded at https://www.kaggle.com/datasets/googleai/pfam-seed-random-split
 
@@ -74,7 +77,7 @@ These are the modules in the './src' folder:
 - The data table and plots are saved in the `./analysis` folder.
 - The full written report is saved in the `./report` folder.
 
-## Hardware that I run my code
+## Hardware that I tested my code
 
 - OS: WSL2 - Ubuntu 22.04.2 LTS
 - CPU: AMD Ryzen 5 3600 - 6 core 12 threads
@@ -84,7 +87,7 @@ These are the modules in the './src' folder:
 
 ## References
 
-In addition to the reference I listed in the report, the following links helped me guide through the project and provided inspirations:
+In addition to the reference I listed in the report, the following links helped me guide the project and provided inspiration:
 - https://www.kaggle.com/code/nistugua/pfam-analysis-classification
 - https://github.com/ronakvijay/Protein_Sequence_Classification/tree/master
 - https://towardsdatascience.com/protein-sequence-classification-99c80d0ad2df
