@@ -64,6 +64,7 @@ The model is trained using PyTorch. A simple CNN architecture is used for demons
 ## Hardware that I run my code
 
 OS: WSL2 - Ubuntu 22.04.2 LTS
-CPU: Intel i9-10920X 12 cores
-GPU: 2 X RTX 3090 (24GB)
-Memory: 128GB
+CPU: AMD Ryzen 5 3600 - 6 core 12 threads
+GPU: RTX 4070
+Memory: 32GB
+IDE: Visual Studio Code 
